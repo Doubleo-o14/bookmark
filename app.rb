@@ -14,26 +14,6 @@ class BookmarkManager < Sinatra::Base
   end
 
   get '/bookmarks' do
-    bookmarks = [
-      'http://www.makersacademy.com',
-      'http://www.destroyallsoftware.com',
-      'http://www.google.com'
-    ]
-
-    bookmarks.join
-  end
-
-  get '/bookmarks' do
-    @bookmarks = [
-      'http://www.makersacademy.com',
-      'http://www.destroyallsoftware.com',
-      'http://www.google.com'
-    ]
-
-    erb :'bookmarks/index'
-  end
-
-  get '/bookmarks' do
     @bookmarks = Bookmark.all
     erb :'bookmarks/index'
   end
