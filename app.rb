@@ -18,10 +18,18 @@ class BookmarkManager < Sinatra::Base
 
   get '/bookmarks' do
     p ENV
-    
     @bookmarks = Bookmark.all
     erb :'index'
   end
+
+  get '/add_bookmarks' do
+    erb :add_bookmarks
+  end
+
+  post '/add' do
+    redirect '/'
+  end
+    
 
   run! if app_file == $PROGRAM_NAME
 end
