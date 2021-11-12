@@ -23,8 +23,10 @@ describe Bookmark do
   end
   describe '.create' do
     it 'allows the user to create a new bookmark' do
-      Bookmark.create(url:'http://www.facebook.com/')
-      expect(Bookmark.all).to include('http://www.facebook.com/')
+      connection = PG.connect(dbname: 'bookmark_manager_test')
+      Bookmark.create(url:'http://www.olympusDAO.com')
+      expect(Bookmark.all).to include('http://www.olympusDAO.com')
+      #it is loading the database in the testnet but on the web page it's showing live
     end
   end
 end
